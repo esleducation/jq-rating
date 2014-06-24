@@ -1,4 +1,4 @@
-do ->
+do ($ = jQuery) ->
 
 	# plugin name variable used to identify plugin
 	pluginName = 'jqRating'

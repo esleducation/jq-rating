@@ -1,4 +1,4 @@
-(function() {
+(function($) {
   var jqRating, pluginName;
   pluginName = 'jqRating';
   jqRating = (function() {
@@ -295,6 +295,6 @@
       return $.error('Method ' + method + ' does not exist on jQuery.jqRating');
     }
   };
-})();
+})(jQuery);
 
 //# sourceMappingURL=jq-rating.js.map
