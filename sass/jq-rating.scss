@@ -1,8 +1,5 @@
 @import "compass/css3";
 
-/**
- * Base
- */
 .jq-rating {
 	font-size:25px;
 	-webkit-touch-callout: none;
@@ -17,16 +14,8 @@
 		cursor:pointer;
 	}
 }
-
-/**
- * Stars
- */
 .jq-rating-star {
 }
-
-/**
- * Colors
- */
 .jq-rating--xlow {
 	.jq-rating-group--hover {
 		color:#e11e21;
@@ -59,20 +48,12 @@
 .jq-rating-group,
 %jq-rating-group{
 	color: #EEE;
-	// display: inline-block;
 
 	> span {
 		margin-right:2px;
-		display:inline-block;
 	}
 }
 .jq-rating-group--hover{
 	@extend %jq-rating-group;
-	position: absolute;
-	overflow: hidden;
-	white-space: nowrap;
-	top: 0;
-	left: 0;
-	pointer-events:none;
 	@include transition(all .1s ease-in-out);
 }

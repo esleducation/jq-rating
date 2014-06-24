@@ -150,8 +150,18 @@ do ($ = jQuery) ->
 				top : 0
 				left : 0
 			@$refs.hover.css
+				position : 'absolute'
 				top : 0
 				left : 0
+				overflow : 'hidden'
+				'white-space' : 'nowrap'
+				'pointer-events' : 'none'
+
+			# stars
+			@$refs.starsBase.css
+				display : 'inline-block'
+			@$refs.starsHover.css
+				display : 'inline-block'
 
 		###
 		# Add events listeners

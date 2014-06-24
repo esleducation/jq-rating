@@ -121,9 +121,19 @@
         top: 0,
         left: 0
       });
-      return this.$refs.hover.css({
+      this.$refs.hover.css({
+        position: 'absolute',
         top: 0,
-        left: 0
+        left: 0,
+        overflow: 'hidden',
+        'white-space': 'nowrap',
+        'pointer-events': 'none'
+      });
+      this.$refs.starsBase.css({
+        display: 'inline-block'
+      });
+      return this.$refs.starsHover.css({
+        display: 'inline-block'
       });
     };
 
