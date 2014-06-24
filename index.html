@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta charset="utf-8" />
+
+	<link href="css/jq-rating.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="js/jq-rating.js"></script>
+	<script>
+
+		jQuery(function($) {
+
+			$elms = $('[data-jq-rating]').jqRating();
+			$first = $elms.filter(':first');
+			$update = $elms.filter(':eq(2)');
+
+			setTimeout(function() {
+				$update.attr('data-jq-rating-value', '1');
+				$update.attr('data-jq-rating-icon-class', 'fa fa-send');
+				$update.jqRating('update');
+			}, 2000);
+
+			setInterval(function() {
+				$first.jqRating('setValue', Math.round(Math.random()*5*100) / 100);
+			}, 1000);
+
+
+		});
+
+	</script>
+
+	<title>ESL - jq-rating</title>
+
+</head>
+<body>
+
+	<div class="container" style="text-align:center;">
+
+		<div class="jumbotron">
+			<h1>ESL - jq-rating</h1>
+		</div>
+
+		<ul class="list-unstyled">
+			<li style="margin-bottom:50px">
+				<h1>Rating 1</h1>
+				<span data-jq-rating
+					data-jq-rating-icon-class="fa fa-mortar-board">
+					<span data-jq-rating-stars></span>
+					<span data-jq-rating-grade></span>
+				</span>
+				<p>I'm not editable but update myself with a timer...</p>
+			</li>
+			<li style="margin-bottom:50px">
+				<h1>Rating 2</h1>
+				<span data-jq-rating
+					data-jq-rating-editable="false"></span>
+				<p>I'm not editable...</p>
+			</li>
+			<li style="margin-bottom:50px">
+				<h1>Rating 3</h1>
+				<span data-jq-rating
+					data-jq-rating-editable="true"
+					data-jq-rating-value="3"
+					data-jq-rating-based-on="10"
+					data-jq-rating-stars-count="10"></span>
+				<p>I'm editable... and will be updated after 2 second</p>
+			</li>
+			<li style="margin-bottom:50px">
+				<h1>Rating 4</h1>
+				<span data-jq-rating
+					data-jq-rating-editable="true"
+					data-jq-rating-icon-class="fa fa-send"></span>
+				<p>I'm editable with a weird icon...</p>
+			</li>
+			<li style="margin-bottom:50px">
+				<h1>Rating 5</h1>
+				<span data-jq-rating
+					data-jq-rating-editable="true"
+					data-jq-rating-value="66"
+					data-jq-rating-stars-count="20"
+					data-jq-rating-based-on="100"></span>
+				<p>I'm editable and a lot larger than my neighbours...</p>
+			</li>
+			<li style="margin-bottom:50px">
+				<h1>Rating form field</h1>
+				<span data-jq-rating
+					data-jq-rating-icon-class="fa fa-user"
+					data-jq-rating-editable="true"
+					data-jq-rating-value="30"
+					data-jq-rating-stars-count="20"
+					data-jq-rating-based-on="100">
+					<span data-jq-rating-stars></span>
+					<br />
+					<input type="text" data-jq-rating-grade />
+				</span>
+				<br />
+				
+				<p>I'm editable and automatically update a form field</p>
+			</li>
+			<li style="margin-bottom:50px">
+				<h1>Rating form field 2</h1>
+				<span data-jq-rating
+					data-jq-rating-icon-class="fa fa-comments-o"
+					data-jq-rating-editable="true"
+					data-jq-rating-value="66"
+					data-jq-rating-update-on="hover"
+					data-jq-rating-stars-count="20"
+					data-jq-rating-based-on="100">
+					<span data-jq-rating-stars></span>
+					<br />
+					<input type="text" data-jq-rating-grade />
+				</span>
+				<br />
+				<p>I'm editable and automatically update a form field and update the value on hover</p>
+			</li>
+			<li style="margin-bottom:50px">
+				<h1>Inline grade</h1>
+				<span data-jq-rating
+					data-jq-rating-icon-class="fa fa-wordpress"
+					data-jq-rating-editable="true"
+					data-jq-rating-value="66"
+					data-jq-rating-stars-count="20"
+					data-jq-rating-based-on="100">
+					<span data-jq-rating-stars></span>
+					<span data-jq-rating-grade></span>
+				</span>
+				<br />
+				<p>I'm editable and have a grade inline (but you can put the grade wherever you want...)</p>
+			</li>
+		</ul>
+
+	</div>
+
+</body>
+</html>
