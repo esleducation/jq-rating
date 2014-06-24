@@ -12,7 +12,6 @@
         basedOn: 5,
         iconClass: 'fa fa-star',
         editable: false,
-        showGrade: true,
         onChange: null
       };
       this.$refs = {

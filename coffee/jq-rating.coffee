@@ -19,7 +19,6 @@ do ->
 				basedOn : 5
 				iconClass : 'fa fa-star'
 				editable : false
-				showGrade : true
 				onChange : null 		# callback when value change (params : value, api)
 			@$refs =
 				starsContainer : null 		# store the stars container if exist
@@ -119,7 +118,6 @@ do ->
 			# generate the good number of stars
 			stars = []
 			for i in [0...@settings.starsCount]
-
 				stars.push ['<span class="jq-rating-star">'
 						'<i class="'+@settings.iconClass+'"></i>'
 					'</span>'].join('')

@@ -4,8 +4,6 @@
  * Base
  */
 .jq-rating {
-	position: relative;
-	display: inline-block;
 	font-size:25px;
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
@@ -59,7 +57,7 @@
  * Groups
  */
 .jq-rating-group,
-%ng-rating-group{
+%jq-rating-group{
 	color: #EEE;
 	// display: inline-block;
 
@@ -69,7 +67,7 @@
 	}
 }
 .jq-rating-group--hover{
-	@extend %ng-rating-group;
+	@extend %jq-rating-group;
 	position: absolute;
 	overflow: hidden;
 	white-space: nowrap;
