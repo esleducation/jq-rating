@@ -20,6 +20,9 @@ First, you need to include the scripts and css in your page
 Then you just have to init the plugin as you do with all others jQuery plugins
 
 ```html
+<span data-jq-rating></span>
+
+<!-- or if you need to specify where each elements are goiing to stand -->
 <span data-jq-rating>
 	<span data-jq-rating-stars></span><!-- display the stars here -->
 	<span data-jq-rating-grade></span><!-- display the grade (value) here -->
