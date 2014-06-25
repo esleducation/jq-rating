@@ -58,7 +58,7 @@ There are all the options available
 >
 > ```html
 > <span data-jq-rating
-        data-jq-rating-{option with dash as separator}="{value}"
+        data-jq-rating-{option-with-dash-as-separator}="{value}"
         data-jq-rating-stars-count="12"
         data-jq-rating-icon-class="fa fa-user">
   </span>
