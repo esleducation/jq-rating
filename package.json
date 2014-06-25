@@ -1,7 +1,7 @@
 {
 	"name": "jq-rating",
 	"description": "jQuery module that provide rating capabilities",
-	"version": "0.0.92",
+	"version": "0.0.93",
 	"main": "js/jq-rating.js",
 	"repository": {
 		"type": "git",
