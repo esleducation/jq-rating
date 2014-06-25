@@ -4,6 +4,15 @@
 jQuery plugin to display "stars" (or something else) based ratings
 
 
+## Install
+
+You can simply download or clone the repo, or install using bower like this
+
+```text
+bower install jq-rating
+```
+
+
 ## Get Started
 
 First, you need to include the scripts and css in your page
