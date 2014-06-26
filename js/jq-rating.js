@@ -36,7 +36,6 @@
 
     jqRating.prototype._init = function(options) {
       this._extendSettings(options);
-      console.log(this.settings);
       this.retainValue = this.settings.retainValue;
       this.$refs.starsContainer = this.$this.find('[data-jq-rating-stars]:first');
       if (!this.$refs.starsContainer.length) {
@@ -101,6 +100,9 @@
      */
 
     jqRating.prototype.release = function() {
+      if (typeof this.retainValue === !'number' || typeof this.retainValue === !'string') {
+        return;
+      }
       this.retainValue = null;
       return this.render();
     };
@@ -243,7 +245,6 @@
     jqRating.prototype.render = function() {
       var levelClassIdx, value, width;
       value = this.hoverValue || this.value;
-      console.log(this.retainValue);
       if (typeof this.retainValue === 'number' || typeof this.retainValue === 'string') {
         value = this.retainValue;
       }

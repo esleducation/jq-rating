@@ -43,8 +43,6 @@ do ($ = jQuery) ->
 			# extend with inline settings
 			@_extendSettings(options)
 
-			console.log @settings
-
 			# save the retain value
 			@retainValue = @settings.retainValue
 
@@ -120,6 +118,9 @@ do ($ = jQuery) ->
 		# Release
 		###
 		release : () ->
+
+			# do nothing is not retained
+			return if typeof @retainValue is not 'number' or typeof @retainValue is not 'string'
 
 			# reset retain value
 			@retainValue = null
@@ -289,7 +290,6 @@ do ($ = jQuery) ->
 
 			# get the value
 			value =  @hoverValue or @value
-			console.log @retainValue
 			value = @retainValue if typeof @retainValue is 'number' or typeof @retainValue is 'string'
 
 			# Calculate the width
