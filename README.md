@@ -89,11 +89,11 @@ jq-rating provide some attributes that you can use to display informations where
 These are the diferent classes that are applied
 
 * __jq-rating__                     : The container
-    * __jq-rating--xlow__               : Applied on the container when the rating level is extra-low
-    * __jq-rating--low__                : Applied on the container when the rating level is low
-    * __jq-rating--medium__             : Applied on the container when the rating level is medium
-    * __jq-rating--high__               : Applied on the container when the rating level is high
-    * __jq-rating--xhigh__              : Applied on the container when the rating level is exta-high
+    * __jq-rating--level-xlow__               : Applied on the container when the rating level is extra-low
+    * __jq-rating--level-low__                : Applied on the container when the rating level is low
+    * __jq-rating--level-medium__             : Applied on the container when the rating level is medium
+    * __jq-rating--level-high__               : Applied on the container when the rating level is high
+    * __jq-rating--level-xhigh__              : Applied on the container when the rating level is exta-high
     * __jq-rating--editable__           : Applied on the container when the rating is editable
 * __jq-rating-group__               : The group of stars
     * __jq-rating-group--hover__    : The group of stars that will be active (the width of this element will be set by the plugin)

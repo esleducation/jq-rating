@@ -7,7 +7,7 @@
       this.settings = {
         value: 3.5,
         retainValue: null,
-        levelsClasses: ['xlow', 'low', 'medium', 'high', 'xhigh'],
+        levelsClasses: ['level-xlow', 'level-low', 'level-medium', 'level-high', 'level-xhigh'],
         updateOn: 'click',
         starsCount: 5,
         basedOn: 5,

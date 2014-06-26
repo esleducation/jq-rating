@@ -13,23 +13,23 @@
   cursor: pointer; }
 
 /* line 20, ../sass/jq-rating.scss */
-.jq-rating--xlow .jq-rating-group--hover {
+.jq-rating--level-xlow .jq-rating-group--hover {
   color: #e11e21; }
 
 /* line 25, ../sass/jq-rating.scss */
-.jq-rating--low .jq-rating-group--hover {
+.jq-rating--level-low .jq-rating-group--hover {
   color: #ff5d10; }
 
 /* line 30, ../sass/jq-rating.scss */
-.jq-rating--medium .jq-rating-group--hover {
+.jq-rating--level-medium .jq-rating-group--hover {
   color: #e8800e; }
 
 /* line 35, ../sass/jq-rating.scss */
-.jq-rating--high .jq-rating-group--hover {
+.jq-rating--level-high .jq-rating-group--hover {
   color: #f9b836; }
 
 /* line 40, ../sass/jq-rating.scss */
-.jq-rating--xhigh .jq-rating-group--hover {
+.jq-rating--level-xhigh .jq-rating-group--hover {
   color: #fdd119; }
 
 /**

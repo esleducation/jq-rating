@@ -14,7 +14,7 @@ do ($ = jQuery) ->
 			@settings =
 				value : 3.5
 				retainValue : null 			# store the retain value
-				levelsClasses : ['xlow','low','medium','high','xhigh']
+				levelsClasses : ['level-xlow','level-low','level-medium','level-high','level-xhigh']
 				updateOn : 'click'		# define if the actual value will be updated on click or on hover (click | hover)
 				starsCount : 5
 				basedOn : 5
