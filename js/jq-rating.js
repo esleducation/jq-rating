@@ -6,6 +6,7 @@
       this.$this = $(item);
       this.settings = {
         value: 3.5,
+        retainValue: null,
         levelsClasses: ['xlow', 'low', 'medium', 'high', 'xhigh'],
         updateOn: 'click',
         starsCount: 5,
@@ -24,6 +25,7 @@
       };
       this.levelClass = null;
       this.hoverValue = null;
+      this.retainValue = null;
       this._init(options);
     }
 
@@ -34,6 +36,7 @@
 
     jqRating.prototype._init = function(options) {
       this._extendSettings(options);
+      this.retainValue = this.settings.retainValue;
       this.$refs.starsContainer = this.$this.find('[data-jq-rating-stars]:first');
       if (!this.$refs.starsContainer.length) {
         this.$refs.starsContainer = this.$this;
@@ -79,6 +82,26 @@
     jqRating.prototype.update = function() {
       this.destroy();
       return this._init();
+    };
+
+
+    /*
+    		 * Retain to a certain value
+     */
+
+    jqRating.prototype.retain = function(value) {
+      this.retainValue = value;
+      return this.render();
+    };
+
+
+    /*
+    		 * Release
+     */
+
+    jqRating.prototype.release = function() {
+      this.retainValue = null;
+      return this.render();
     };
 
 
@@ -218,7 +241,7 @@
 
     jqRating.prototype.render = function() {
       var levelClassIdx, value, width;
-      value = this.hoverValue || this.value;
+      value = this.retainValue || this.hoverValue || this.value;
       width = 100 / this.settings.basedOn * value;
       this.$refs.hover.css({
         width: width + '%'

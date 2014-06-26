@@ -13,6 +13,7 @@ do ($ = jQuery) ->
 			@$this = $(item)
 			@settings =
 				value : 3.5
+				retainValue : null 			# store the retain value
 				levelsClasses : ['xlow','low','medium','high','xhigh']
 				updateOn : 'click'		# define if the actual value will be updated on click or on hover (click | hover)
 				starsCount : 5
@@ -29,6 +30,7 @@ do ($ = jQuery) ->
 				starsHover : null 		# store all the hover stars
 			@levelClass = null 			# store the applied level class to be able to remove it, etc...
 			@hoverValue = null			# store hoverValue
+			@retainValue = null 			# store retain value, if set, the rating will keep this value forever until release
 
 			# init
 			@_init(options)
@@ -40,6 +42,9 @@ do ($ = jQuery) ->
 
 			# extend with inline settings
 			@_extendSettings(options)
+
+			# save the retain value
+			@retainValue = @settings.retainValue
 
 			# get the stars container
 			@$refs.starsContainer = @$this.find '[data-jq-rating-stars]:first'
@@ -97,6 +102,28 @@ do ($ = jQuery) ->
 
 			# init again
 			@_init()
+
+		###
+		# Retain to a certain value
+		###
+		retain : (value) ->
+
+			# set the value
+			@retainValue = value
+
+			# render
+			@render()
+
+		###
+		# Release
+		###
+		release : () ->
+
+			# reset retain value
+			@retainValue = null
+
+			# render
+			@render()
 
 		###
 		# Generate html
@@ -259,7 +286,7 @@ do ($ = jQuery) ->
 		render : () ->
 
 			# get the value
-			value = @hoverValue or @value
+			value = @retainValue or @hoverValue or @value
 
 			# Calculate the width
 			width = 100 / @settings.basedOn * value
