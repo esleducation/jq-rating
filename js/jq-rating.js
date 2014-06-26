@@ -36,6 +36,7 @@
 
     jqRating.prototype._init = function(options) {
       this._extendSettings(options);
+      console.log(this.settings);
       this.retainValue = this.settings.retainValue;
       this.$refs.starsContainer = this.$this.find('[data-jq-rating-stars]:first');
       if (!this.$refs.starsContainer.length) {
@@ -241,7 +242,11 @@
 
     jqRating.prototype.render = function() {
       var levelClassIdx, value, width;
-      value = this.retainValue || this.hoverValue || this.value;
+      value = this.hoverValue || this.value;
+      console.log(this.retainValue);
+      if (typeof this.retainValue === 'number' || typeof this.retainValue === 'string') {
+        value = this.retainValue;
+      }
       width = 100 / this.settings.basedOn * value;
       this.$refs.hover.css({
         width: width + '%'
