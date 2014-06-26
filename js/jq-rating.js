@@ -315,13 +315,14 @@
         return plugin[method].apply(plugin, args);
       });
     } else if (typeof method === 'object' || !method) {
+      args = Array.prototype.slice.call(arguments);
       return this.each(function() {
         var $this, plugin;
         $this = $(this);
         if (($this.data(pluginName + '_api') != null) && $this.data(pluginName + '_api') !== '') {
           return;
         }
-        plugin = new jqRating(this, arguments[0]);
+        plugin = new jqRating(this, args[0]);
         return $(this).data(pluginName + '_api', plugin);
       });
     } else {

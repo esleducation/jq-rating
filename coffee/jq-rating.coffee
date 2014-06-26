@@ -353,6 +353,9 @@ do ($ = jQuery) ->
 
 		else if typeof method == 'object' or not method
 
+			# store arguments to use later
+			args = Array.prototype.slice.call( arguments )
+
 			this.each () ->
 
 				$this = $(this)
@@ -361,7 +364,7 @@ do ($ = jQuery) ->
 				return if $this.data(pluginName+'_api')? and $this.data(pluginName+'_api') != ''
 
 				# make initialisation of plugin
-				plugin = new jqRating this, arguments[0]
+				plugin = new jqRating this, args[0]
 
 				# save plugin in element
 				$(this).data pluginName+'_api', plugin
