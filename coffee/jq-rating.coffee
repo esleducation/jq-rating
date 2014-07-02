@@ -1,3 +1,13 @@
+###
+# jq-rating
+#
+# jQuery plugin to create stars based rating
+#
+# @author 	ESL Education <web@esl-education.org>
+# @created 	02.07.14
+# @updated 	02.07.14
+# @version 	1.0.0
+###
 do ($ = jQuery) ->
 
 	# plugin name variable used to identify plugin

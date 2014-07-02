@@ -1,7 +1,12 @@
-# jq-rating (0.0.9)
+# jq-rating (1.0.0)
 
 
 jQuery plugin to display "stars" (or something else) based ratings
+
+
+## Demo
+
+You can find some demos here : http://esleducation.github.io/jq-rating/
 
 
 ## Install
