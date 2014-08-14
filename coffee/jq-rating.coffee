@@ -5,8 +5,8 @@
 #
 # @author 	ESL Education <web@esl-education.org>
 # @created 	02.07.14
-# @updated 	02.07.14
-# @version 	1.0.0
+# @updated 	14.08.14
+# @version 	1.0.1
 ###
 do ($ = jQuery) ->
 
@@ -284,7 +284,7 @@ do ($ = jQuery) ->
 				switch elm.nodeName.toLowerCase()
 					when 'textarea', 'input'
 						# update value
-						$(elm).val @value
+						$(elm).val(@value).attr('value',@value).trigger('change').trigger('input')
 					else
 						# update html
 						$(elm).html @value

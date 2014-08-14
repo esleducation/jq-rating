@@ -6,8 +6,8 @@
  *
  * @author 	ESL Education <web@esl-education.org>
  * @created 	02.07.14
- * @updated 	02.07.14
- * @version 	1.0.0
+ * @updated 	14.08.14
+ * @version 	1.0.1
  */
 (function($) {
   var jqRating, pluginName;
@@ -236,7 +236,7 @@
           switch (elm.nodeName.toLowerCase()) {
             case 'textarea':
             case 'input':
-              return $(elm).val(_this.value);
+              return $(elm).val(_this.value).attr('value', _this.value).trigger('change').trigger('input');
             default:
               return $(elm).html(_this.value);
           }

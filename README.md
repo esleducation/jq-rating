@@ -1,4 +1,4 @@
-# jq-rating (1.0.0)
+# jq-rating (1.0.1)
 
 
 jQuery plugin to display "stars" (or something else) based ratings
