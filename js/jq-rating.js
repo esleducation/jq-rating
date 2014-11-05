@@ -6,8 +6,8 @@
  *
  * @author 	ESL Education <web@esl-education.org>
  * @created 	02.07.14
- * @updated 	14.08.14
- * @version 	1.0.2
+ * @updated 	05.11.14
+ * @version 	1.0.3
  */
 (function($) {
   var jqRating, pluginName;
@@ -65,8 +65,8 @@
      */
 
     jqRating.prototype.destroy = function() {
-      this.$refs.starsBase.unbind('mouseover');
-      this.$refs.starsBase.unbind('click');
+      this.$refs.starsInteraction.unbind('mouseover');
+      this.$refs.starsInteraction.unbind('click');
       this.$refs.starsContainer.unbind('mouseleave');
       this.$refs.starsContainer.empty();
       this.$refs.starsContainer = null;
@@ -131,15 +131,18 @@
       }
       this.$refs.base = $('<span class="jq-rating-group" />');
       this.$refs.hover = $('<span class="jq-rating-group--hover" />');
+      this.$refs.interaction = $('<span class="jq-rating-group--hover jq-rating-group--interaction" />');
       stars = [];
       for (i = _i = 0, _ref = this.settings.starsCount; 0 <= _ref ? _i < _ref : _i > _ref; i = 0 <= _ref ? ++_i : --_i) {
         stars.push(['<span class="jq-rating-star">', '<i class="' + this.settings.iconClass + '"></i>', '</span>'].join(''));
       }
-      this.$refs.starsContainer.append(this.$refs.base).append(this.$refs.hover);
+      this.$refs.starsContainer.append(this.$refs.base).append(this.$refs.hover).append(this.$refs.interaction);
       this.$refs.base.append($(stars.join('')));
       this.$refs.hover.append($(stars.join('')));
+      this.$refs.interaction.append($(stars.join('')));
       this.$refs.starsBase = this.$refs.base.children();
-      return this.$refs.starsHover = this.$refs.hover.children();
+      this.$refs.starsHover = this.$refs.hover.children();
+      return this.$refs.starsInteraction = this.$refs.interaction.children();
     };
 
 
@@ -148,6 +151,7 @@
      */
 
     jqRating.prototype._applyBaseCss = function() {
+      var sharedHoverCss;
       if (this.$refs.starsContainer.length) {
         this.$refs.starsContainer.css({
           position: 'relative',
@@ -158,19 +162,23 @@
         top: 0,
         left: 0
       });
-      this.$refs.hover.css({
+      sharedHoverCss = {
         position: 'absolute',
         top: 0,
         left: 0,
         overflow: 'hidden',
-        'white-space': 'nowrap',
-        'pointer-events': 'none'
-      });
+        'white-space': 'nowrap'
+      };
+      this.$refs.hover.css(sharedHoverCss);
+      this.$refs.interaction.css(sharedHoverCss);
       this.$refs.starsBase.css({
         display: 'inline-block'
       });
-      return this.$refs.starsHover.css({
+      this.$refs.starsHover.css({
         display: 'inline-block'
+      });
+      return this.$refs.starsInteraction.css({
+        color: 'transparent'
       });
     };
 
@@ -194,7 +202,7 @@
         };
       })(this));
       if (this.isEditable()) {
-        this.$refs.starsBase.bind('mouseover', (function(_this) {
+        this.$refs.starsInteraction.bind('mouseover', (function(_this) {
           return function(e) {
             var index, value;
             index = $(e.currentTarget).index() + 1;
@@ -207,7 +215,7 @@
             }
           };
         })(this));
-        this.$refs.starsBase.bind('click', (function(_this) {
+        this.$refs.starsInteraction.bind('click', (function(_this) {
           return function(e) {
             var index;
             index = $(e.currentTarget).index() + 1;

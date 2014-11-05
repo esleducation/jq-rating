@@ -1,4 +1,4 @@
-# jq-rating (1.0.2)
+# jq-rating (1.0.3)
 
 
 jQuery plugin to display "stars" (or something else) based ratings
@@ -100,8 +100,9 @@ These are the diferent classes that are applied
     * __jq-rating--level-high__               : Applied on the container when the rating level is high
     * __jq-rating--level-xhigh__              : Applied on the container when the rating level is exta-high
     * __jq-rating--editable__           : Applied on the container when the rating is editable
-* __jq-rating-group__               : The group of stars
-    * __jq-rating-group--hover__    : The group of stars that will be active (the width of this element will be set by the plugin)
+* __jq-rating-group__                   : The group of stars
+    * __jq-rating-group--hover__        : The group of stars that will be active (the width of this element will be set by the plugin)
+    * __jq-rating-group--interaction__  : The group of stars used only for interaction. This group shares the --hover class but a color:transparent; is set on each stars in this group
 * __jq-rating-star__                : The star that contain a "i" tag
     * __jq-rating-star--active__        : Applies on the stars that are active
 

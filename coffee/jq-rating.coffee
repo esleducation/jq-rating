@@ -5,8 +5,8 @@
 #
 # @author 	ESL Education <web@esl-education.org>
 # @created 	02.07.14
-# @updated 	14.08.14
-# @version 	1.0.2
+# @updated 	05.11.14
+# @version 	1.0.3
 ###
 do ($ = jQuery) ->
 
@@ -81,8 +81,8 @@ do ($ = jQuery) ->
 		destroy : () ->
 
 			# remove events listeners
-			@$refs.starsBase.unbind 'mouseover'
-			@$refs.starsBase.unbind 'click'
+			@$refs.starsInteraction.unbind 'mouseover'
+			@$refs.starsInteraction.unbind 'click'
 			@$refs.starsContainer.unbind 'mouseleave'
 
 			# remove the html elements
@@ -155,6 +155,9 @@ do ($ = jQuery) ->
 			# hover
 			@$refs.hover = $('<span class="jq-rating-group--hover" />')
 
+			# interaction proxy
+			@$refs.interaction = $('<span class="jq-rating-group--hover jq-rating-group--interaction" />')
+
 			# generate the good number of stars
 			stars = []
 			for i in [0...@settings.starsCount]
@@ -165,14 +168,17 @@ do ($ = jQuery) ->
 			# append to html :
 			@$refs.starsContainer.append @$refs.base
 			          .append @$refs.hover
+			          .append @$refs.interaction
 
 			# append stars
 			@$refs.base.append $(stars.join(''))
 			@$refs.hover.append $(stars.join(''))
+			@$refs.interaction.append $(stars.join(''))
 
 			# get the stars references
 			@$refs.starsBase = @$refs.base.children()
 			@$refs.starsHover = @$refs.hover.children()
+			@$refs.starsInteraction = @$refs.interaction.children()
 
 		###
 		# Apply base css
@@ -189,19 +195,22 @@ do ($ = jQuery) ->
 			@$refs.base.css
 				top : 0
 				left : 0
-			@$refs.hover.css
+			sharedHoverCss =
 				position : 'absolute'
 				top : 0
 				left : 0
 				overflow : 'hidden'
 				'white-space' : 'nowrap'
-				'pointer-events' : 'none'
+			@$refs.hover.css sharedHoverCss
+			@$refs.interaction.css sharedHoverCss
 
 			# stars
 			@$refs.starsBase.css
 				display : 'inline-block'
 			@$refs.starsHover.css
 				display : 'inline-block'
+			@$refs.starsInteraction.css
+				color: 'transparent'
 
 		###
 		# Add events listeners
@@ -223,7 +232,7 @@ do ($ = jQuery) ->
 			if @isEditable()
 
 				# listen for hover on stars
-				@$refs.starsBase.bind 'mouseover', (e) =>
+				@$refs.starsInteraction.bind 'mouseover', (e) =>
 
 					# index
 					index = $(e.currentTarget).index() + 1
@@ -247,7 +256,7 @@ do ($ = jQuery) ->
 						@render()
 
 				# listen for click
-				@$refs.starsBase.bind 'click', (e) =>
+				@$refs.starsInteraction.bind 'click', (e) =>
 
 					# index
 					index = $(e.currentTarget).index() + 1
